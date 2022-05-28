@@ -27,7 +27,7 @@ namespace mbanq.API.Helpers
             await _next(context);
         }
 
-        private async void attachUserToContext(HttpContext context, MBANQContext db, string token)
+        private void attachUserToContext(HttpContext context, MBANQContext db, string token)
         {
             try
             {
@@ -44,11 +44,11 @@ namespace mbanq.API.Helpers
                 }, out SecurityToken validatedToken);
 
                 var jwtToken = (JwtSecurityToken)validatedToken;
-                //int userId = (jwtToken.Claims.First(x => x.Type == "id").Value);
-                var userId = jwtToken.Claims.First(x => x.Type == "email").Value;
+                int userId = Int32.Parse(jwtToken.Claims.First(x => x.Type == "id").Value);
+                //var userId = jwtToken.Claims.First(x => x.Type == "email").Value;
 
                 // attach user to context on successful jwt validation
-                context.Items["User"] = db.MbqAppUsers.Where(c => c.Email == userId).FirstOrDefault();
+                context.Items["User"] = db.MbqAppUsers.Where(c => c.Id == userId).FirstOrDefault();
             }
             catch (Exception e)
             {
