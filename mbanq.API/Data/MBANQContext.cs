@@ -185,6 +185,11 @@ namespace mbanq.API.Data
 
                 entity.Property(e => e.Active).HasColumnName("active");
 
+                entity.Property(e => e.Alias)
+                    .HasMaxLength(255)
+                    .IsUnicode(false)
+                    .HasColumnName("alias");
+
                 entity.Property(e => e.City)
                     .HasMaxLength(255)
                     .IsUnicode(false)
@@ -204,6 +209,13 @@ namespace mbanq.API.Data
                     .IsUnicode(false)
                     .HasColumnName("digital_address");
 
+                entity.Property(e => e.Email)
+                    .HasMaxLength(255)
+                    .IsUnicode(false)
+                    .HasColumnName("email");
+
+                entity.Property(e => e.IsHead).HasColumnName("is_head");
+
                 entity.Property(e => e.LastModifiedDate)
                     .HasColumnType("datetime")
                     .HasColumnName("last_modified_date");
@@ -214,6 +226,11 @@ namespace mbanq.API.Data
                     .HasColumnName("modified_by");
 
                 entity.Property(e => e.OrganizationId).HasColumnName("organization_id");
+
+                entity.Property(e => e.Phone)
+                    .HasMaxLength(13)
+                    .IsUnicode(false)
+                    .HasColumnName("phone");
 
                 entity.Property(e => e.RegionId).HasColumnName("region_id");
 

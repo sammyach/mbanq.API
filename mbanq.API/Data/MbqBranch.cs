@@ -22,6 +22,10 @@ namespace mbanq.API.Data
         public string? CreatedBy { get; set; }
         public DateTime? LastModifiedDate { get; set; }
         public string? ModifiedBy { get; set; }
+        public bool? IsHead { get; set; }
+        public string? Phone { get; set; }
+        public string? Email { get; set; }
+        public string? Alias { get; set; }
 
         public virtual MbqOrganization Organization { get; set; } = null!;
         public virtual MbqRegion? Region { get; set; }
