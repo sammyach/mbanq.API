@@ -21,12 +21,12 @@ namespace mbanq.API.Data
         public string? OtherNames { get; set; }
         public DateTime? DateOfBirth { get; set; }
         public string? Gender { get; set; }
-        public bool? Verified { get; set; }
+        public bool Verified { get; set; }
         public DateTime? DateCreated { get; set; }
         public string? CreatedBy { get; set; }
         public DateTime? LastModifiedDate { get; set; }
         public string? ModifiedBy { get; set; }
-        public bool? Deleted { get; set; }
+        public bool Deleted { get; set; }
         public DateTime? DateDeleted { get; set; }
         public int? BranchId { get; set; }
         public string? Occupation { get; set; }

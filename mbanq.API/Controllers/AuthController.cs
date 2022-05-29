@@ -31,6 +31,7 @@ namespace mbanq.API.Controllers
             if (!ModelState.IsValid) return BadRequest(ModelState);
             var foundUser = await _context.MbqAppUsers.Where(x => x.Email == login.Email).FirstOrDefaultAsync();
             if (foundUser == null) return Unauthorized("Email not associated with any account.");
+            if(!foundUser.Enabled) return Unauthorized("Account not activated");
             var hashedPassword = Utilities.GeneratePasswordHash(login.Password, foundUser?.Nacl);
 
             if (!hashedPassword.SequenceEqual(foundUser.PasswordHash)) return Unauthorized("Wrong Password");

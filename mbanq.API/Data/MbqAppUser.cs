@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Text.Json.Serialization;
 
 namespace mbanq.API.Data
 {
@@ -18,15 +19,17 @@ namespace mbanq.API.Data
         public string? Othernames { get; set; }
         public string? PrimaryPhone { get; set; }
         public string? OtherPhone { get; set; }
+        [JsonIgnore]
         public byte[]? PasswordHash { get; set; }
         public int? BranchId { get; set; }
-        public bool? Enabled { get; set; }
+        public bool Enabled { get; set; }
         public DateTime? DateCreated { get; set; }
         public string? CreatedBy { get; set; }
         public DateTime? LastModifiedDate { get; set; }
         public string? ModifiedBy { get; set; }
-        public bool? Deleted { get; set; }
+        public bool Deleted { get; set; }
         public DateTime? DateDeleted { get; set; }
+        [JsonIgnore]
         public byte[]? Nacl { get; set; }
 
         public virtual MbqBranch? Branch { get; set; }

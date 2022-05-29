@@ -17,12 +17,12 @@ namespace mbanq.API.Data
         public string? City { get; set; }
         public int? RegionId { get; set; }
         public int? StateId { get; set; }
-        public bool? Active { get; set; }
+        public bool Active { get; set; }
         public DateTime? DateCreated { get; set; }
         public string? CreatedBy { get; set; }
         public DateTime? LastModifiedDate { get; set; }
         public string? ModifiedBy { get; set; }
-        public bool? IsHead { get; set; }
+        public bool IsHead { get; set; }
         public string? Phone { get; set; }
         public string? Email { get; set; }
         public string? Alias { get; set; }
